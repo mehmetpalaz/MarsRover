@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MarsRover.ConsoleUI.Core.Commands;
 using MarsRover.ConsoleUI.Core.Models;
 using MarsRover.ConsoleUI.Services;
@@ -49,13 +50,17 @@ namespace MarsRover.ConsoleUI
                 "1 2 N",
                 "LMLMLMLMM",
                 "3 3 E",
-                "MMRMMRMRRM",
-                "3 3 E",
-                "MMRMMMMMMMMMMRMRRM"
+                "MMRMMRMRRM"
             };
         }
 
         private static void WriteOutput(List<Rover> rovers){
+            var plateau = rovers.First().Plateau;
+            Console.WriteLine($"plateau size : {plateau.Size.X}, {plateau.Size.Y}");
+            Console.WriteLine();
+            Console.WriteLine($"rovers");
+            Console.WriteLine("------------");
+
             var i = 0;
             foreach (var rover in rovers)
             {
